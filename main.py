@@ -62,20 +62,20 @@ while(True):
             # runs if the user's input is blank
             else:
                 print("\n\nPlease make sure you entered something\n\n")
-        # tells the user to export the section export from (blank)
-         print("\nNow please export the section export in (blank)")
-         # runs until the user enters the path to the csv file from (blank)
+        # tells the user to export the section export from Rediker
+         print("\nNow please export the section export in Rediker")
+         # runs until the user enters the path to the csv file from Rediker
          while(True):
-             (blank)File = input("\nPlease enter the path csv file from (blank):")
+             RedikerFile = input("\nPlease enter the path csv file from Rediker:")
              # checks if the user's input is not blank
-             if((blank)File != ""):
+             if(RedikerFile != ""):
                 # stops the loop
                 break
              # runs if the user's input is blank
              else:
                 print("\n\nPlease make sure you entered something.\n\n")
          # creates a canvas class object named can
-         can = canvas.canvas((blank)File, "", "")
+         can = canvas.canvas(RedikerFile, "", "")
          # reads the information from the canvasInfo.txt file
          can.readInfoFromCanvasFile()
          # gets the canvas admin account 
@@ -99,7 +99,7 @@ while(True):
                         can.setCourseSISID(row[0])
                         # sets the section number to the item in the second column
                         can.setSecotionNum(row[1])
-                        # matches the courses between the (blank) file and the canvas report
+                        # matches the courses between the Rediker file and the canvas report
                         worked = can.matchCourses()
                         if(worked):
                             # creates the homepage
@@ -129,9 +129,9 @@ while(True):
              break
      # checks if the user said no    
      elif(user == "no" or user =="n"):
-         # runs until the user enters the courseID from (blank) of the course they want to upload a home page to
+         # runs until the user enters the courseID from Rediker of the course they want to upload a home page to
          while(True):
-             courseID = input("\nPlease enter the courseID from (blank) for the course you want to upload a home page to: ")
+             courseID = input("\nPlease enter the courseID from Rediker for the course you want to upload a home page to: ")
              # checks if the user's input is not blank
              if(courseID != ""):
                  # breaks the loop
@@ -141,8 +141,8 @@ while(True):
                 print("\nPlease make sure you enter something.")
         # runs until the user enters the section number of the course they want to upload a home page to
          while(True):
-             # ask the user for the section number from (blank)
-             sectionNumber = input("\nPlease enter the section number from (blank) for the course you want to upload a home page to: ")
+             # ask the user for the section number from Rediker
+             sectionNumber = input("\nPlease enter the section number from Rediker for the course you want to upload a home page to: ")
              # checks if the user's input is not blank
              if(sectionNumber != ""):
                  try:
@@ -158,26 +158,26 @@ while(True):
             # tells the user to 
              else:
                 print("\n\nPlease make sure you enter a number.\n\n")
-         # runs until the user enters the path to the (blank) csv file
+         # runs until the user enters the path to the Rediker csv file
          while(True):
-             # ask the user for the (blank) csv file
-             (blank)File = input("Please enter the path csv file from (blank):")
+             # ask the user for the Rediker csv file
+             RedikerFile = input("Please enter the path csv file from Rediker:")
              # checks if the user's input is blank
-             if((blank)File != ""):
+             if(RedikerFile != ""):
                  # stops the loop
                 break
             # runs if the user's input is blank
              else:
                 print("\n\nPlease make sure you entered something.\n\n")
          # creates a canvas class object called can 
-         can = canvas.canvas((blank)File, courseID, sectionNumber)
+         can = canvas.canvas(RedikerFile, courseID, sectionNumber)
          # reads the canvasInfo.txt file
          can.readInfoFromCanvasFile()
          # gets the canvas admin account
          can.getAdminAccount()
          # gets a report containing all course canvas has
          can.getCourseReport()
-         # matches the courses between the (blank) file and the canvas report
+         # matches the courses between the Rediker file and the canvas report
          can.matchCourses()
          # creates the homepage
          can.makeHomePage()
