@@ -310,23 +310,23 @@ class canvas:
         info = requests.get(url=url, headers=headers)
         # sets accountID to the school's ID
         self.adminID = str(info.json()[0]["id"]) # type: ignore   
-    # matches info from both the Rediker csv and the canvas csv then assigns class variables to information from both files.
+    # matches info from both the (blank) csv and the canvas csv then assigns class variables to information from both files.
     def matchCourses(self):
         logging.info("Running Match Course Function")
-        # opens the Rediker csv file
-        RedikerFile = open(self.csvFilePath, newline="")
+        # opens the (blank) csv file
+        (blank)File = open(self.csvFilePath, newline="")
         # opens the canvas csv file
         canvasReport = open("", newline="")
-        # reads the Rediker csv file
-        RedikerFile = csv.reader(RedikerFile)
+        # reads the (blank) csv file
+        (blank)File = csv.reader((blank)File)
         # reads the canvas file
         canvasReport = csv.reader(canvasReport)
-        # goes through the Rediker file looking for the courseID and section number that match
+        # goes through the (blank) file looking for the courseID and section number that match
         # The ones entered into the class
-        for red in RedikerFile:
+        for red in (blank)File:
             # checks if the current course ID and section number match the entered ones
             if(red[1] == self.courseSISID and red[2] == self.sectionNum):
-                # sets the course name to the 17th column in the Rediker export
+                # sets the course name to the 17th column in the (blank) export
                 self.courseName = red[14]
                 # goes though the canvas csv file looking for the course ID and section number in the canvas SISID
                 for can in canvasReport:
@@ -353,7 +353,7 @@ class canvas:
                             self.teacher = str(self.teacher).replace(k, "")
                         if(self.teacher[0] == " "):
                             str(self.teacher).replace(" ", "")
-                        # sets the course location to Rediker's 5th column
+                        # sets the course location to (blank)'s 5th column
                         self.location = red[4]
                         # sets the courseID to canvas's first column
                         self.courseID = can[0]
